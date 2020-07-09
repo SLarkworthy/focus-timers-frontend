@@ -22,12 +22,34 @@ class App extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    
+    const userInfo = this.state.login;
+    const headers = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user: userInfo
+      })
+    }
+    fetch("http://localhost:3001/api/v1/login", headers)
+    .then(response => response.json())
+    .then(userJSON => {
+      if (userJSON.error){
+        alert("Invalid credentials")
+      } else {
+        this.setState({
+          currentUser: userJSON
+        })
+      }
+    })
+    .catch(error => console.log(error))
   }
   
   render () {
   return (
     <div className="App">
+      <h2>Welcome{this.state.currentUser ? ", " + this.state.currentUser.name : "!"}</h2>
       <Login 
         handleFormChange={this.handleFormChange}
         handleSubmit={this.handleSubmit}
