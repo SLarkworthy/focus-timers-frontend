@@ -1,20 +1,20 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sessionStatus } from "../store/actions/userActions"
-import classes from './SessionStatus.module.css'
-import Routes from './Routes'
+import User from './User'
+
+
 
 class SessionStatus extends Component {
 
     componentDidMount() {
-        this.props.sessionStatus()
+        
     }
 
     render() {
         return (
-            <div className={classes.SessionStatus}>
-                <h2>Welcome {this.props.loggedIn ? this.props.currentUser.name : "!"}</h2>
-                <Routes loggedIn={this.props.loggedIn}/>
+            <div>
+                <User />
             </div>
         )
     }
@@ -28,4 +28,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { sessionStatus })(SessionStatus)
+export default connect(mapStateToProps)(SessionStatus)

@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import Login from "./Login"
 import Signup from "./Signup"
 import NavBar from "./NavBar"
+import UserContainer from './UserContainer';
 
 
-const routes = () => {
+const routes = (props) => {
+    console.log(props.loggedIn)
     return (
         <Router>
             <NavBar />
@@ -16,6 +18,9 @@ const routes = () => {
                 <Route exact path="/login">
                     <Login />
                 </Route>
+                <Route path="/users/:id" exact render={() => (
+                    props.loggedIn ? <UserContainer /> : <Redirect to="/" />
+                )}/>
             </Switch>
         </Router>
     )

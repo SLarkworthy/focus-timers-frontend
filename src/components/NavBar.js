@@ -22,6 +22,9 @@ const navBar = (props) => {
             <Link to="/signup">
                 Sign Up
             </Link>
+            <Link to={`/users/${props.currentUser.id}`} >
+                User page
+            </Link>
             <Link to="/" onClick={() => handleClick()}>
                 Log Out
             </Link>
