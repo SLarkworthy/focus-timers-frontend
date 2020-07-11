@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { logoutUser } from '../store/actions/userActions'
+import classes from './NavBar.module.css'
 
 const navBar = (props) => {
     const handleClick = () => {
@@ -11,29 +12,19 @@ const navBar = (props) => {
     }
 
     return (
-        <div>
-            <ul>
-                <li>
-                    <Link to="/">
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/login">
-                        Log In
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/signup">
-                        Sign Up
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/" onClick={() => handleClick()}>
-                        Log Out
-                    </Link>
-                </li>
-            </ul>
+        <div class={classes.NavBar}>
+            <Link to="/">
+                Home
+            </Link>
+            <Link to="/login">
+                Log In
+            </Link>
+            <Link to="/signup">
+                Sign Up
+            </Link>
+            <Link to="/" onClick={() => handleClick()}>
+                Log Out
+            </Link>
         </div>
     )
 }

@@ -52,9 +52,25 @@ export function logoutUser() {
         })
             .then(resp => {
                 if (resp.ok) {
-                    console.log("here")
                     dispatch({ type: actionTypes.LOGOUT })
                 }
+            })
+    }
+}
+
+export function sessionStatus() {
+    return dispatch => {
+        fetch("http://localhost:3001/api/v1/logged_in", {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+            credentials: "include"
+        })
+            .then(resp => resp.json())
+            .then(userData => {
+                console.log(userData);
+                userData.logged_in ? dispatch({ type: actionTypes.LOGIN, user: userData.user }) : dispatch({ type: actionTypes.LOGOUT })
             })
     }
 }

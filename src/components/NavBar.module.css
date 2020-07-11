@@ -1,0 +1,15 @@
+.NavBar {
+    background-color: blue;
+    position: 0;
+}
+
+.NavBar ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.NavBar a {
+    background-color: green;
+    text-decoration: none;
+
+}
