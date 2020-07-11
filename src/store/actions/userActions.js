@@ -14,7 +14,7 @@ export function loginUser(user) {
             .then(resp => resp.json())
             .then(userData => {
                 if (userData.user){
-                    dispatch({ type: actionTypes.LOGIN, user: userData.user })
+                    dispatch({ type: actionTypes.LOGIN, user: userData.user.data.attributes })
                 }
             } )
     }
@@ -34,7 +34,7 @@ export function signupUser(user) {
             .then(resp => resp.json())
             .then(userData => {
                 if (userData.user) {
-                    dispatch({ type: actionTypes.SIGNUP, user: userData.user })
+                    dispatch({ type: actionTypes.SIGNUP, user: userData.user.data.attributes })
                 }
             } )
     }
@@ -69,8 +69,7 @@ export function sessionStatus() {
         })
             .then(resp => resp.json())
             .then(userData => {
-                console.log(userData);
-                userData.logged_in ? dispatch({ type: actionTypes.LOGIN, user: userData.user }) : dispatch({ type: actionTypes.LOGOUT })
+                userData.logged_in ? dispatch({ type: actionTypes.LOGIN, user: userData.user.data.attributes }) : dispatch({ type: actionTypes.LOGOUT })
             })
             .catch(error => console.log(error))
     }
