@@ -12,7 +12,7 @@ const navBar = (props) => {
     }
 
     return (
-        <div class={classes.NavBar}>
+        <div className={classes.NavBar}>
             <Link to="/">
                 Home
             </Link>

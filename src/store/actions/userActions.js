@@ -72,5 +72,6 @@ export function sessionStatus() {
                 console.log(userData);
                 userData.logged_in ? dispatch({ type: actionTypes.LOGIN, user: userData.user }) : dispatch({ type: actionTypes.LOGOUT })
             })
+            .catch(error => console.log(error))
     }
 }
