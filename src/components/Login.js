@@ -18,6 +18,11 @@ class Login extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.loginUser(this.state)
+        .then(() => {
+            if (this.props.loggedIn) {
+                this.props.history.push(`/users/${this.props.currentUser.id}`)
+            }
+        }) 
         this.setState({ 
             email: '',
             password: '',
@@ -38,5 +43,12 @@ class Login extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        loggedIn: state.loggedIn,
+        currentUser: state.currentUser
+    }
+}
 
-export default connect(null, { loginUser })(Login)
+
+export default connect(mapStateToProps, { loginUser })(Login)

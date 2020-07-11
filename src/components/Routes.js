@@ -12,12 +12,12 @@ const routes = (props) => {
         <Router>
             <NavBar />
             <Switch>
-                <Route exact path="/signup">
-                    <Signup />
-                </Route>
-                <Route exact path="/login">
-                    <Login />
-                </Route>
+                <Route exact path="/signup" render={props => (
+                     <Signup history={props.history} />
+                )} />
+                 <Route exact path="/login" render={props => (
+                     <Login history={props.history} />
+                )} />
                 <Route path="/users/:id" exact render={() => (
                     props.loggedIn ? <UserContainer /> : <Redirect to="/" />
                 )}/>

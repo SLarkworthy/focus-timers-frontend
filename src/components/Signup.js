@@ -20,6 +20,11 @@ class Signup extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.signupUser(this.state)
+        .then(() => {
+            if (this.props.loggedIn) {
+                this.props.history.push(`/users/${this.props.currentUser.id}`)
+            }
+        }) 
         this.setState({
             name: '',
             email: '',
@@ -42,5 +47,12 @@ class Signup extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        loggedIn: state.loggedIn,
+        currentUser: state.currentUser
+    }
+}
 
-export default connect(null, { signupUser })(Signup)
+
+export default connect(mapStateToProps, { signupUser })(Signup)
