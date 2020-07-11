@@ -10,7 +10,6 @@ class App extends React.Component {
   return (
     <div className="App">
       <SessionStatus />
-      <Routes />
       hi
     </div>
   )};
