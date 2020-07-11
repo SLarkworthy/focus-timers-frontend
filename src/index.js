@@ -4,11 +4,11 @@ import App from './App';
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import manageUsers from './store/reducers/manageUsers'
+import reducer from './store/reducers/index'
 
 
 const middlewares = [thunk];
-const store = createStore(manageUsers, applyMiddleware(...middlewares));
+const store = createStore(reducer, applyMiddleware(...middlewares));
 ReactDOM.render(
   <Provider store={store}>
     <App />
