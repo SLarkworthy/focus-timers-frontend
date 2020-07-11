@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sessionStatus } from "../store/actions/userActions"
+import classes from './SessionStatus.module.css'
 
 class SessionStatus extends Component {
 
@@ -10,7 +11,7 @@ class SessionStatus extends Component {
 
     render() {
         return (
-            <div>
+            <div className={classes.SessionStatus}>
                 <h2>Welcome {this.props.loggedIn ? this.props.currentUser.name : "!"}</h2>
             </div>
         )

@@ -1,15 +1,20 @@
 .NavBar {
-    background-color: blue;
-    position: 0;
-}
-
-.NavBar ul {
-    display: flex;
-    flex-direction: row;
+    background-color: orangered;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .NavBar a {
-    background-color: green;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-
 }
+
+.NavBar a:hover {
+    background: #ddd;
+    color: black;
+  }
