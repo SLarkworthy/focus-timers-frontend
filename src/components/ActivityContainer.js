@@ -1,10 +1,9 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import User from './User'
-import ActivityContainer from './ActivityContainer'
+import Activity from './Activity'
 
 
-class UserContainer extends Component {
+class ActivityContainer extends Component {
 
     componentDidMount() {
         
@@ -13,8 +12,8 @@ class UserContainer extends Component {
     render() {
         return (
             <div>
-                <User />
-                <ActivityContainer />
+                I am the activity container
+                <Activity />
             </div>
         )
     }
@@ -28,4 +27,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(UserContainer)
+export default connect(mapStateToProps)(ActivityContainer)
