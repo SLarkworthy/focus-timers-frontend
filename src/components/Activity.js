@@ -1,11 +1,12 @@
 import React from 'react';
-import Timer from './Timer'
-import timer from './Timer';
+import TimerContainer from './TimerContainer'
+
+
 
 const activity = () => {
     return (
         <div>activity
-            <Timer />
+            <TimerContainer />
         </div>
     )
 }
