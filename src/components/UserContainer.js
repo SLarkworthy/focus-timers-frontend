@@ -4,17 +4,17 @@ import User from './User'
 import ActivityContainer from './ActivityContainer'
 
 
+
 class UserContainer extends Component {
 
     componentDidMount() {
-        
+       
     }
 
     render() {
         return (
             <div>
                 <User />
-                <ActivityContainer />
             </div>
         )
     }
