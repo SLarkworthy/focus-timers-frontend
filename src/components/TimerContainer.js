@@ -1,5 +1,6 @@
 import React from 'react';
-import Timer from 'react-compound-timer'
+import Timer from 'react-compound-timer';
+import sound from '../assets/alarm_sound.mp3';
 
 class TimerContainer extends React.Component {
     constructor(props) {
@@ -7,8 +8,16 @@ class TimerContainer extends React.Component {
         this.userTimer = React.createRef(); 
       }
 
-    handleCallback = () => {
-        this.userTimer.current.pause()
+    handleWorkCallback = () => {
+        this.userTimer.current.pause();
+        let audio = new Audio(sound);
+        audio.play();
+    }
+
+    handleBreakCallback = () => {
+        this.userTimer.current.reset();
+        let audio = new Audio(sound);
+        audio.play();
     }
 
     render() {
@@ -25,11 +34,11 @@ class TimerContainer extends React.Component {
             checkpoints={[
                 {
                     time: 5000,
-                    callback: this.handleCallback
+                    callback: this.handleWorkCallback
                 },
                 {
                     time: 0,
-                    callback: () => alert("done!")
+                    callback:  this.handleBreakCallback
                 }
             ]}
         >
