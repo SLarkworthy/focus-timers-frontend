@@ -42,6 +42,26 @@ export function postActivity(timer, user) {
     }
 }
 
+export function updateActivity(timer, user) {
+    return dispatch => {
+        return fetch(`http://localhost:3001/api/v1/users/${user.id}/activity_timers/${timer.id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            credentials: "include",
+            body: JSON.stringify({activity_timer: timer})
+        })
+            .then(resp => resp.json())
+            .then(timerData => {
+                if (timerData.data) {
+                    dispatch({ type: actionTypes.PATCH_TIMER, timer: timerData.data.attributes })
+                }
+            })
+    }
+}
+
 
 // export function loginUser(user) {
 //     return dispatch => {

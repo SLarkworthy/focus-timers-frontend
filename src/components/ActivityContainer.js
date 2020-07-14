@@ -4,6 +4,7 @@ import Activity from './Activity';
 import { getActivityTimers } from "../store/actions/timerActions";
 import TestTimer from './TestTimer';
 import ActivityInput from './ActivityInput';
+import UpdateActivity from './UpdateActivity';
 
 
 class ActivityContainer extends Component {
@@ -16,7 +17,8 @@ class ActivityContainer extends Component {
         return this.props.userTimers.map(timer => (
             <li key={timer.id}>
                 {timer.activity}
-                <Activity timer={timer}/>
+                <Activity timer={timer} />
+                <UpdateActivity timer={timer} />
             </li>
         ))
     }

@@ -15,6 +15,18 @@ export default function manageTimers(state = {
                 ...state,
                 userTimers: timers
             }
+        case actionTypes.PATCH_TIMER:
+            const updatedTimers = state.userTimers.map(timer => {
+                if (timer.id === action.timer.id) {
+                    return action.timer;
+                } else {
+                    return timer;
+                }
+            })
+            return {
+                ...state,
+                userTimers: updatedTimers
+            }
             
         default:
             return state;
