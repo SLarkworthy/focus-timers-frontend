@@ -25,6 +25,9 @@ const navBar = (props) => {
             <Link to={`/users/${props.currentUser.id}`} >
                 User page
             </Link>
+            <Link to="/activities" >
+                Activities
+            </Link>
             <Link to="/" onClick={() => handleClick()}>
                 Log Out
             </Link>

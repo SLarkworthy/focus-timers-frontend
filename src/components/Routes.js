@@ -4,6 +4,7 @@ import Login from "./Login"
 import Signup from "./Signup"
 import NavBar from "./NavBar"
 import UserContainer from './UserContainer';
+import ActivityContainer from './ActivityContainer';
 
 
 const routes = (props) => {
@@ -20,6 +21,9 @@ const routes = (props) => {
                 )} />
                 <Route path="/users/:id" exact render={() => (
                     props.loggedIn ? <UserContainer /> : <Redirect to="/" />
+                )}/>
+                <Route path="/activities" exact render={() => (
+                    <ActivityContainer />
                 )}/>
             </Switch>
         </Router>

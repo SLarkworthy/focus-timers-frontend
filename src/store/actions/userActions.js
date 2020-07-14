@@ -69,7 +69,15 @@ export function sessionStatus() {
         })
             .then(resp => resp.json())
             .then(userData => {
-                userData.logged_in ? dispatch({ type: actionTypes.LOGIN, user: userData.user.data.attributes }) : dispatch({ type: actionTypes.LOGOUT })
+                console.log(userData)
+                if (userData.logged_in) {
+                    dispatch({ type: actionTypes.LOGIN, user: userData.user.data.attributes })
+                    for (let timer of userData.user.data.attributes.activity_timers ) {
+                        dispatch({ type: actionTypes.ADD_TIMER, timer: timer })
+                    }
+                } else {
+                    dispatch({ type: actionTypes.LOGOUT })
+                }
             })
             .catch(error => console.log(error))
     }

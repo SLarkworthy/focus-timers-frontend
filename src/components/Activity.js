@@ -3,10 +3,10 @@ import TimerContainer from './TimerContainer'
 
 
 
-const activity = () => {
+const activity = (props) => {
     return (
-        <div>activity
-            <TimerContainer />
+        <div>
+            <TimerContainer timer={props.timer}/>
         </div>
     )
 }
