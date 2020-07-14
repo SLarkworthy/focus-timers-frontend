@@ -15,6 +15,9 @@ export function loginUser(user) {
             .then(userData => {
                 if (userData.user){
                     dispatch({ type: actionTypes.LOGIN, user: userData.user.data.attributes })
+                    for (let timer of userData.user.data.attributes.activity_timers ) {
+                        dispatch({ type: actionTypes.ADD_TIMER, timer: timer })
+                    }
                 }
             } )
     }
@@ -53,6 +56,7 @@ export function logoutUser() {
             .then(resp => {
                 if (resp.ok) {
                     dispatch({ type: actionTypes.LOGOUT })
+                    dispatch({ type: actionTypes.DELETE_TIMERS })
                 }
             })
     }
@@ -77,6 +81,7 @@ export function sessionStatus() {
                     }
                 } else {
                     dispatch({ type: actionTypes.LOGOUT })
+                    dispatch({ type: actionTypes.DELETE_TIMERS })
                 }
             })
             .catch(error => console.log(error))

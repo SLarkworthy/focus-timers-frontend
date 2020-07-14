@@ -20,12 +20,17 @@ export default function manageTimers(state = {
                 if (timer.id === action.timer.id) {
                     return action.timer;
                 } else {
-                    return timer;
+                     return timer;
                 }
             })
             return {
                 ...state,
                 userTimers: updatedTimers
+            }
+        case actionTypes.DELETE_TIMERS:
+            return {
+                ...state,
+                userTimers: []
             }
             
         default:

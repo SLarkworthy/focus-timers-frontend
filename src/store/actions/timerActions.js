@@ -21,7 +21,6 @@ export function getActivityTimers(user) {
     }
 }
 
-
 export function postActivity(timer, user) {
     return dispatch => {
         return fetch(`http://localhost:3001/api/v1/users/${user.id}/activity_timers`, {
