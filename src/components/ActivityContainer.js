@@ -10,7 +10,7 @@ import UpdateActivity from './UpdateActivity';
 class ActivityContainer extends Component {
 
     renderTimerNames = () => {
-        return this.props.userTimers.map(timer => (
+        return [...this.props.userTimers].sort( (b, a) => a.id - b.id ).map(timer => (
             <li key={timer.id}>
                 {timer.activity}
                 <Activity timer={timer} />
