@@ -10,6 +10,10 @@ class TimerContainer extends React.Component {
 
         this.startTime = this.setStartTime();
         this.breakTime = this.setBreakTime();
+
+        this.state = {
+            showEdit: false
+        }
       }
 
     handleWorkCallback = () => {
@@ -72,6 +76,7 @@ class TimerContainer extends React.Component {
             </>
             )}
         </Timer>
+        <button>Edit</button>
         </>
     )
 }}

@@ -9,10 +9,6 @@ import UpdateActivity from './UpdateActivity';
 
 class ActivityContainer extends Component {
 
-    componentDidMount() {
-        
-    }
-
     renderTimerNames = () => {
         return this.props.userTimers.map(timer => (
             <li key={timer.id}>
@@ -20,7 +16,7 @@ class ActivityContainer extends Component {
                 <Activity timer={timer} />
                 <UpdateActivity timer={timer} />
                 <div>
-                    <button>Edit</button>
+                   
                     <button onClick={() => this.props.deleteActivity(timer, this.props.currentUser)}>Delete</button>
                 </div>
             </li>
