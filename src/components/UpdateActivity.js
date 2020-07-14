@@ -9,8 +9,10 @@ class Login extends Component {
         timer: {
             id: this.props.timer.id,
             activity: this.props.timer.activity,
-            work_time: this.props.timer.work_time,
-            break_time: this.props.timer.break_time,
+            work_time_hours: this.props.timer.work_time_hours,
+            work_time_minutes: this.props.timer.work_time_minutes,
+            break_time_hours: this.props.timer.break_time_hours,
+            break_time_minutes: this.props.timer.break_time_minutes,
             sound: 'ring',
         },
 
@@ -72,9 +74,13 @@ class Login extends Component {
             <div className={this.formClass()}>
                 <h1>Update Activity Timer</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="activity" placeholder="activity name" value={this.state.timer.activity} onChange={this.handleChange} />
-                    <input type="text" name="work_time" placeholder="Work time" value={this.state.timer.work_time} onChange={this.handleChange} />
-                    <input type="text" name="break_time" placeholder="Break time" value={this.state.timer.break_time} onChange={this.handleChange} />
+                <input type="text" name="activity" placeholder="activity name" value={this.state.timer.activity} onChange={this.handleChange} />
+                    <label>Work Time</label>
+                    <input type="number" name="work_time_hours" value={this.state.timer.work_time_hours} onChange={this.handleChange} /> hour(s)
+                    <input type="number" name="work_time_minutes" value={this.state.timer.work_time_minutes} onChange={this.handleChange} /> minute(s)
+                    <label>Break Time</label>
+                    <input type="number" name="break_time_hours" value={this.state.timer.break_time_hours} onChange={this.handleChange} /> hour(s)
+                    <input type="number" name="break_time_minutes" value={this.state.timer.break_time_minutes} onChange={this.handleChange} /> minute(s)
                     <input type="submit" value="Update Activity" />
                 </form>
             </div>

@@ -29,6 +29,7 @@ class TimerContainer extends React.Component {
     }
 
     setStartTime = () => {
+        //dont forget!! break time plus work time!!
         return 20000;
     }
 
