@@ -30,11 +30,11 @@ class TimerContainer extends React.Component {
 
     setStartTime = () => {
         //dont forget!! break time plus work time!!
-        return 20000;
+        return 60 * 60 * 1000 * this.props.timer.work_time_hours + 60 * 1000 * this.props.timer.work_time_minutes + 60 * 60 * 1000 * this.props.timer.break_time_hours + 60 * 1000 * this.props.timer.break_time_minutes;
     }
 
     setBreakTime = () => {
-        return 10000;
+        return 60 * 60 * 1000 * this.props.timer.break_time_hours + 60 * 1000 * this.props.timer.break_time_minutes;
     }
     
 
@@ -62,7 +62,7 @@ class TimerContainer extends React.Component {
         >
             {({ start, resume, pause, reset }) => (
             <>
-            <div  ref={this.myRef}>
+            <div>
                 <Timer.Hours /> hours
                 <Timer.Minutes /> minutes
                 <Timer.Seconds /> seconds
@@ -77,7 +77,6 @@ class TimerContainer extends React.Component {
             </>
             )}
         </Timer>
-        <button>Edit</button>
         </>
     )
 }}
