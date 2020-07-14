@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Activity from './Activity';
 import { getActivityTimers } from "../store/actions/timerActions";
+import TestTimer from './TestTimer';
+import ActivityInput from './ActivityInput';
 
 
 class ActivityContainer extends Component {
@@ -14,7 +16,7 @@ class ActivityContainer extends Component {
         return this.props.userTimers.map(timer => (
             <li key={timer.id}>
                 {timer.activity}
-                <Activity />
+                <Activity timer={timer}/>
             </li>
         ))
     }
@@ -25,10 +27,12 @@ class ActivityContainer extends Component {
         return (
             <div>
                 <h2>Activity List</h2>
-                
+                <ActivityInput />
                 <ul>
                     {this.renderTimerNames()}
                 </ul>
+                Test Timer :
+                <TestTimer />
                
             </div>
         )
