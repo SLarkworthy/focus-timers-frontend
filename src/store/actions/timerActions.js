@@ -62,44 +62,20 @@ export function updateActivity(timer, user) {
     }
 }
 
-
-// export function loginUser(user) {
-//     return dispatch => {
-//         return fetch("http://localhost:3001/api/v1/login", {
-//             method: "POST",
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json',
-//             },
-//             credentials: "include",
-//             body: JSON.stringify({user: user})
-//         })
-//             .then(resp => resp.json())
-//             .then(userData => {
-//                 if (userData.user){
-//                     dispatch({ type: actionTypes.LOGIN, user: userData.user.data.attributes })
-//                 }
-//             } )
-//     }
-// }
-
-
-// export function loginUser(user) {
-//     return dispatch => {
-//         return fetch("http://localhost:3001/api/v1/login", {
-//             method: "POST",
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json',
-//             },
-//             credentials: "include",
-//             body: JSON.stringify({user: user})
-//         })
-//             .then(resp => resp.json())
-//             .then(userData => {
-//                 if (userData.user){
-//                     dispatch({ type: actionTypes.LOGIN, user: userData.user.data.attributes })
-//                 }
-//             } )
-//     }
-// }
+export function deleteActivity(timer, user) {
+    return dispatch => {
+        return fetch(`http://localhost:3001/api/v1/users/${user.id}/activity_timers/${timer.id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            credentials: "include",
+        })
+            .then(resp => {
+                if (resp.ok) {
+                    dispatch({ type: actionTypes.DELETE_TIMER, timer})
+                }
+            })
+    }
+}

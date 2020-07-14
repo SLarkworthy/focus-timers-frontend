@@ -69,10 +69,6 @@ class TimerContainer extends React.Component {
                 <button onClick={resume}>Resume</button>
                 <button onClick={reset}>Reset</button>
             </div>
-            <div>
-                <button>Edit</button>
-                <button>Delete</button>
-            </div>
             </>
             )}
         </Timer>

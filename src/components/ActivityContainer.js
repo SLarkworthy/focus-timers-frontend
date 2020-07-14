@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Activity from './Activity';
-import { getActivityTimers } from "../store/actions/timerActions";
+import { getActivityTimers, deleteActivity } from "../store/actions/timerActions";
 import TestTimer from './TestTimer';
 import ActivityInput from './ActivityInput';
 import UpdateActivity from './UpdateActivity';
@@ -19,6 +19,10 @@ class ActivityContainer extends Component {
                 {timer.activity}
                 <Activity timer={timer} />
                 <UpdateActivity timer={timer} />
+                <div>
+                    <button>Edit</button>
+                    <button onClick={() => this.props.deleteActivity(timer, this.props.currentUser)}>Delete</button>
+                </div>
             </li>
         ))
     }
@@ -50,4 +54,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getActivityTimers })(ActivityContainer)
+export default connect(mapStateToProps, { getActivityTimers, deleteActivity })(ActivityContainer)

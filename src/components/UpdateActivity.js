@@ -32,7 +32,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h1>Add Activity Timer</h1>
+                <h1>Update Activity Timer</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="activity" placeholder="activity name" value={this.state.activity} onChange={this.handleChange} />
                     <input type="text" name="work_time" placeholder="Work time" value={this.state.work_time} onChange={this.handleChange} />
