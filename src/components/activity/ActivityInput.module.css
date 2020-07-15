@@ -1,0 +1,23 @@
+input[type=number] {
+    width: 65px;
+    padding: 2px;
+}
+
+.HideForm {
+    display: none;
+}
+
+.Form {
+    width: 80%;
+    padding: 15px 25px;
+    margin: auto;
+    box-sizing: border-box;
+    border: 2px solid grey;
+    border-radius: 4px;
+    font-size: medium;
+}
+
+.Form input {
+    font-size: medium;
+    padding: 6px 10px;
+}

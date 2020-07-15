@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux"
 import * as actionTypes from "../../store/actions";
 import { postActivity } from '../../store/actions/timerActions'
+import classes from './ActivityInput.module.css'
 
 class Login extends Component {
     state = {
@@ -35,15 +36,19 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h1>Add Activity Timer</h1>
-                <form onSubmit={this.handleSubmit}>
+                <h3>Add Activity Timer</h3>
+                <form className={classes.Form} onSubmit={this.handleSubmit}>
                     <input type="text" name="activity" placeholder="activity name" value={this.state.activity} onChange={this.handleChange} />
-                    <label>Work Time</label>
-                    <input type="number" name="work_time_hours" value={this.state.work_time_hours} onChange={this.handleChange} /> hour(s)
-                    <input type="number" name="work_time_minutes" value={this.state.work_time_minutes} onChange={this.handleChange} /> minute(s)
-                    <label>Break Time</label>
-                    <input type="number" name="break_time_hours" value={this.state.break_time_hours} onChange={this.handleChange} /> hour(s)
-                    <input type="number" name="break_time_minutes" value={this.state.break_time_minutes} onChange={this.handleChange} /> minute(s)
+                    <label>Work Time in hours:minutes</label>
+                    <div>
+                        <input type="number" name="work_time_hours" value={this.state.work_time_hours} onChange={this.handleChange} /><strong> : </strong> 
+                        <input type="number" name="work_time_minutes" value={this.state.work_time_minutes} onChange={this.handleChange} /> 
+                    </div>
+                    <label>Break Time in hours:minutes</label>
+                    <div>
+                        <input type="number" name="break_time_hours" value={this.state.break_time_hours} onChange={this.handleChange} /><strong> : </strong> 
+                        <input type="number" name="break_time_minutes" value={this.state.break_time_minutes} onChange={this.handleChange} />
+                    </div>
                     <input type="submit" value="Add Activity" />
                 </form>
             </div>

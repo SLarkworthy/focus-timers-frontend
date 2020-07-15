@@ -7,10 +7,7 @@ class TimerContainer extends React.Component {
     constructor(props) {
         super(props);
         this.userTimer = React.createRef();
-
-        this.startTime = this.setStartTime();
-        this.breakTime = this.setBreakTime();
-
+        
         this.state = {
             showEdit: false
         }
@@ -44,7 +41,7 @@ class TimerContainer extends React.Component {
         <div>timer</div>
         <Timer
             ref={this.userTimer}
-            initialTime={this.startTime}
+            initialTime={this.setStartTime()}
             startImmediately={false}
             direction="backward"
             onStart={() => console.log('onStart hook')}

@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import User from './User'
-import ActivityContainer from '../activity/ActivityContainer'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import User from './User';
+import generalClasses from '../../App.module.css';
 
 
 
@@ -9,7 +9,7 @@ class UserContainer extends Component {
 
     pageContent = () => {
         if (parseInt(this.props.params.id) === this.props.currentUser.id) {
-            return <User />;
+            return <User currentUser={this.props.currentUser}/>;
         } else {
             return "unauthorized";
         }
@@ -17,7 +17,7 @@ class UserContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className={generalClasses.Card}>
                 {this.pageContent()}
             </div>
         )

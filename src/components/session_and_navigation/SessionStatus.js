@@ -16,7 +16,6 @@ class SessionStatus extends Component {
         return (
             <div className={classes.SessionStatus}>
                 <img src={image} alt="background sunset"></img>
-                <h2>Welcome {this.props.loggedIn ? this.props.currentUser.name : "!"}</h2>
                 <Routes loggedIn={this.props.loggedIn}/>
             </div>
         )

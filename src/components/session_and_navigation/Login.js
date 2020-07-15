@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
 import * as actionTypes from "../../store/actions";
-import { loginUser } from '../../store/actions/userActions'
+import { loginUser } from '../../store/actions/userActions';
+import generalClasses from '../../App.module.css';
+
 
 class Login extends Component {
     state = {
@@ -31,7 +33,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div className={generalClasses.Card}>
                 <h1>Log in</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.handleChange} />

@@ -18,10 +18,10 @@ const routes = (props) => {
                       <HomepageContainer />
                 )} />
                 <Route exact path="/signup" render={props => (
-                     props.loggedIn ? <Signup history={props.history} /> : <Redirect to="/" />
+                     !props.loggedIn ? <Signup history={props.history} /> : <Redirect to="/" />
                 )} />
                  <Route exact path="/login" render={props => (
-                     props.loggedIn ? <Login history={props.history} /> : <Redirect to="/" />
+                     !props.loggedIn ? <Login history={props.history} /> : <Redirect to="/" />
                 )} />
                 <Route path="/users/:id" exact render={(props) => (
                     <UserContainer params={props.match.params}/>

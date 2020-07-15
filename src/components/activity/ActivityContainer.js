@@ -5,21 +5,21 @@ import { getActivityTimers, deleteActivity } from "../../store/actions/timerActi
 import TestTimer from '../timer/TestTimer';
 import ActivityInput from './ActivityInput';
 import UpdateActivity from './UpdateActivity';
+import generalClasses from '../../App.module.css';
 
 
 class ActivityContainer extends Component {
 
     renderTimerNames = () => {
         return [...this.props.userTimers].sort( (b, a) => a.id - b.id ).map(timer => (
-            <li key={timer.id}>
+            <div className={generalClasses.Card} key={timer.id}>
                 {timer.activity}
                 <Activity timer={timer} />
                 <UpdateActivity timer={timer} />
                 <div>
-                   
                     <button onClick={() => this.props.deleteActivity(timer, this.props.currentUser)}>Delete</button>
                 </div>
-            </li>
+            </div>
         ))
     }
 
@@ -28,14 +28,17 @@ class ActivityContainer extends Component {
         console.log(this.props.userTimers)
         return (
             <div>
-                <h2>Activity List</h2>
-                <ActivityInput />
-                <ul>
-                    {this.renderTimerNames()}
-                </ul>
-                Test Timer :
-                <TestTimer />
-               
+                <div className={generalClasses.Card}>
+                    <h2>Activity Timers</h2>
+                </div>
+                <div className={generalClasses.Card}> 
+                    <ActivityInput />
+                </div>
+                {this.renderTimerNames()}
+                <div className={generalClasses.Card}>
+                    Test Timer :
+                    <TestTimer />   
+                </div>           
             </div>
         )
     }
