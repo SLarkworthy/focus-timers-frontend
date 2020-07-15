@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { sessionStatus } from "../store/actions/userActions"
-import { getActivityTimers } from "../store/actions/timerActions";
+import { sessionStatus } from "../../store/actions/userActions"
+import { getActivityTimers } from "../../store/actions/timerActions";
 import classes from './SessionStatus.module.css'
 import Routes from './Routes'
+import image from '../../assets/sunset.jpg'
 
 class SessionStatus extends Component {
 
@@ -14,6 +15,7 @@ class SessionStatus extends Component {
     render() {
         return (
             <div className={classes.SessionStatus}>
+                <img src={image} alt="background sunset"></img>
                 <h2>Welcome {this.props.loggedIn ? this.props.currentUser.name : "!"}</h2>
                 <Routes loggedIn={this.props.loggedIn}/>
             </div>

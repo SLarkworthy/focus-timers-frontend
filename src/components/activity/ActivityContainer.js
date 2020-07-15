@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Activity from './Activity';
-import { getActivityTimers, deleteActivity } from "../store/actions/timerActions";
-import TestTimer from './TestTimer';
+import { getActivityTimers, deleteActivity } from "../../store/actions/timerActions";
+import TestTimer from '../timer/TestTimer';
 import ActivityInput from './ActivityInput';
 import UpdateActivity from './UpdateActivity';
 

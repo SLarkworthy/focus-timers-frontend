@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import * as actionTypes from "../store/actions";
-import { postActivity } from '../store/actions/timerActions'
+import * as actionTypes from "../../store/actions";
+import { postActivity } from '../../store/actions/timerActions'
 
 class Login extends Component {
     state = {

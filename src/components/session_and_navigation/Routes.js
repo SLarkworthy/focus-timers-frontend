@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import Login from "./Login"
 import Signup from "./Signup"
 import NavBar from "./NavBar"
-import UserContainer from './UserContainer';
-import ActivityContainer from './ActivityContainer';
-import HomepageContainer from '../components/homepage/HomepageContainer'
+import UserContainer from '../user/UserContainer';
+import ActivityContainer from '../activity/ActivityContainer';
+import HomepageContainer from '../homepage/HomepageContainer'
 
 
 const routes = (props) => {
@@ -18,13 +18,12 @@ const routes = (props) => {
                       <HomepageContainer />
                 )} />
                 <Route exact path="/signup" render={props => (
-                     <Signup history={props.history} />
+                     props.loggedIn ? <Signup history={props.history} /> : <Redirect to="/" />
                 )} />
                  <Route exact path="/login" render={props => (
-                     <Login history={props.history} />
+                     props.loggedIn ? <Login history={props.history} /> : <Redirect to="/" />
                 )} />
                 <Route path="/users/:id" exact render={(props) => (
-                    // props.loggedIn ? <UserContainer /> : <Redirect to="/" />
                     <UserContainer params={props.match.params}/>
                 )}/>
                 <Route path="/activities" exact render={() => (

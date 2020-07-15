@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
-import { logoutUser } from '../store/actions/userActions'
+import { logoutUser } from '../../store/actions/userActions'
 import classes from './NavBar.module.css'
 
 const navBar = (props) => {
@@ -16,12 +16,16 @@ const navBar = (props) => {
             <Link to="/">
                 Home
             </Link>
+            {!props.loggedIn ?
+            <>
             <Link to="/login">
                 Log In
             </Link>
             <Link to="/signup">
                 Sign Up
-            </Link>
+            </Link> </> : null}
+            {props.loggedIn ?
+            <>
             <Link to={`/users/${props.currentUser.id}`} >
                 User page
             </Link>
@@ -30,7 +34,7 @@ const navBar = (props) => {
             </Link>
             <Link to="/" style={{float: "right", color: "black"}} onClick={() => handleClick()}>
                 <strong>Log Out</strong>
-            </Link>
+            </Link> </> : null}
         </div>
     )
 }

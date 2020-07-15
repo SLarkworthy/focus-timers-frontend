@@ -1,5 +1,5 @@
 import React from 'react';
-import TimerContainer from './TimerContainer'
+import TimerContainer from '../timer/TimerContainer'
 
 
 

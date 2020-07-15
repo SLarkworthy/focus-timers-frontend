@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import * as actionTypes from "../store/actions";
-import { updateActivity } from '../store/actions/timerActions'
+import * as actionTypes from "../../store/actions";
+import { updateActivity } from '../../store/actions/timerActions'
 import classes from './UpdateActivity.module.css'
 
 class Login extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import User from './User'
-import ActivityContainer from './ActivityContainer'
+import ActivityContainer from '../activity/ActivityContainer'
 
 
 

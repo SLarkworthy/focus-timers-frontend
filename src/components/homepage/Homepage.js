@@ -1,11 +1,10 @@
 import React from "react";
 import classes from './Homepage.module.css'
-import image from '../../assets/sunset.jpg'
 
 const homepage = props => {
     return (
         <>
-        <img src={image}></img>
+        {/* <img src={image}></img> */}
         <div className={classes.Homepage}>
             <h1>Welcome to Focus Buddy!</h1>
             <p>This app is designed to let you create custom timed work and break cycles for any activity. </p>

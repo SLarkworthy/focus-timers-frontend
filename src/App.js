@@ -1,10 +1,8 @@
 import React from 'react';
-import Routes from './components/Routes'
-import SessionStatus from './components/SessionStatus'
+import SessionStatus from './components/session_and_navigation/SessionStatus';
 
 
 class App extends React.Component {
-  
   
   render () {
   return (

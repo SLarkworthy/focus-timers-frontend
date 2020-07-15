@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import * as actionTypes from "../store/actions";
-import { loginUser } from '../store/actions/userActions'
+import { signupUser } from '../../store/actions/userActions'
 
-class Login extends Component {
+class Signup extends Component {
     state = {
+        name: '',
         email: '',
         password: '',
     }
@@ -15,15 +15,17 @@ class Login extends Component {
         })
     }
 
+
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.loginUser(this.state)
+        this.props.signupUser(this.state)
         .then(() => {
             if (this.props.loggedIn) {
                 this.props.history.push(`/users/${this.props.currentUser.id}`)
             }
         }) 
-        this.setState({ 
+        this.setState({
+            name: '',
             email: '',
             password: '',
         })
@@ -32,11 +34,12 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h1>Log in</h1>
+                <h1>Sign Up</h1>
                 <form onSubmit={this.handleSubmit}>
+                    <input type="text" name="name" placeholder="name" value={this.state.name} onChange={this.handleChange} />
                     <input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.handleChange} />
                     <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleChange} />
-                    <input type="submit" value="Log In" />
+                    <input type="submit" value="Sign Up" />
                 </form>
             </div>
         )
@@ -51,4 +54,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { loginUser })(Login)
+export default connect(mapStateToProps, { signupUser })(Signup)

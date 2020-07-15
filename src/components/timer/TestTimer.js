@@ -1,6 +1,6 @@
 import React from 'react';
 import Timer from 'react-compound-timer';
-import sound from '../assets/alarm_sound.mp3';
+import sound from '../../assets/alarm_sound.mp3';
 
 class TestTimer extends React.Component {
     constructor(props) {
