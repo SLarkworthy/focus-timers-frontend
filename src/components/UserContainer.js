@@ -7,14 +7,18 @@ import ActivityContainer from './ActivityContainer'
 
 class UserContainer extends Component {
 
-    componentDidMount() {
-       
+    pageContent = () => {
+        if (parseInt(this.props.params.id) === this.props.currentUser.id) {
+            return <User />;
+        } else {
+            return "unauthorized";
+        }
     }
 
     render() {
         return (
             <div>
-                <User />
+                {this.pageContent()}
             </div>
         )
     }

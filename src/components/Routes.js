@@ -23,8 +23,9 @@ const routes = (props) => {
                  <Route exact path="/login" render={props => (
                      <Login history={props.history} />
                 )} />
-                <Route path="/users/:id" exact render={() => (
-                    props.loggedIn ? <UserContainer /> : <Redirect to="/" />
+                <Route path="/users/:id" exact render={(props) => (
+                    // props.loggedIn ? <UserContainer /> : <Redirect to="/" />
+                    <UserContainer params={props.match.params}/>
                 )}/>
                 <Route path="/activities" exact render={() => (
                     <ActivityContainer />
