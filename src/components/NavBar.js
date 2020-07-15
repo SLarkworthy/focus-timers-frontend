@@ -28,8 +28,8 @@ const navBar = (props) => {
             <Link to="/activities" >
                 Activities
             </Link>
-            <Link to="/" onClick={() => handleClick()}>
-                Log Out
+            <Link to="/" style={{float: "right", color: "black"}} onClick={() => handleClick()}>
+                <strong>Log Out</strong>
             </Link>
         </div>
     )

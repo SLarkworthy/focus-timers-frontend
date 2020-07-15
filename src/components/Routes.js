@@ -5,6 +5,7 @@ import Signup from "./Signup"
 import NavBar from "./NavBar"
 import UserContainer from './UserContainer';
 import ActivityContainer from './ActivityContainer';
+import HomepageContainer from '../components/homepage/HomepageContainer'
 
 
 const routes = (props) => {
@@ -13,6 +14,9 @@ const routes = (props) => {
         <Router>
             <NavBar />
             <Switch>
+                <Route exact path="/" render={() => (
+                      <HomepageContainer />
+                )} />
                 <Route exact path="/signup" render={props => (
                      <Signup history={props.history} />
                 )} />
