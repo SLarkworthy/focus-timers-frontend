@@ -56,7 +56,7 @@ export function logoutUser() {
             .then(resp => {
                 if (resp.ok) {
                     dispatch({ type: actionTypes.LOGOUT })
-                    dispatch({ type: actionTypes.DELETE_TIMERS })
+                    dispatch({ type: actionTypes.DELETED_TIMERS })
                 }
             })
     }
@@ -81,7 +81,7 @@ export function sessionStatus() {
                     }
                 } else {
                     dispatch({ type: actionTypes.LOGOUT })
-                    dispatch({ type: actionTypes.DELETE_TIMERS })
+                    dispatch({ type: actionTypes.DELETED_TIMERS })
                 }
             })
             .catch(error => console.log(error))

@@ -27,7 +27,8 @@ export default function manageTimers(state = {
                 ...state,
                 userTimers: updatedTimers
             }
-        case actionTypes.DELETE_TIMERS:
+        case actionTypes.DELETED_TIMERS:
+            console.log("DELETED TIMERS")
             return {
                 ...state,
                 userTimers: []
