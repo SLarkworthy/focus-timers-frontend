@@ -7,7 +7,7 @@ class TimerContainer extends React.Component {
     constructor(props) {
         super(props);
         this.userTimer = React.createRef();
-        
+
         this.state = {
             showEdit: false
         }
@@ -38,7 +38,6 @@ class TimerContainer extends React.Component {
     render() {
     return (
         <>
-        <div>timer</div>
         <Timer
             ref={this.userTimer}
             initialTime={this.setStartTime()}

@@ -13,7 +13,8 @@ class ActivityContainer extends Component {
     renderTimerNames = () => {
         return [...this.props.userTimers].sort( (b, a) => a.id - b.id ).map(timer => (
             <div className={generalClasses.Card} key={timer.id}>
-                {timer.activity}
+                <h3>{timer.activity}</h3>
+                <p>Work Time <strong>{`${timer.work_time_hours}:${timer.work_time_minutes}`}</strong> Break Time <strong>{`${timer.break_time_hours}:${timer.break_time_minutes}`}</strong></p>
                 <Activity timer={timer} />
                 <UpdateActivity timer={timer} />
                 <div>
