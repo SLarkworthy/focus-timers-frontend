@@ -1,13 +1,11 @@
 import React from 'react';
-import TimerContainer from '../timer/TimerContainer'
+import TimerState from '../timer/TimerState'
 
 
 
 const activity = (props) => {
     return (
-        <div>
-            <TimerContainer timer={props.timer}/>
-        </div>
+        <TimerState timer={props.timer}/>
     )
 }
 

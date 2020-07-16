@@ -6,6 +6,7 @@ import TestTimer from '../timer/TestTimer';
 import ActivityInput from './ActivityInput';
 import UpdateActivity from './UpdateActivity';
 import generalClasses from '../../App.module.css';
+import classes from './ActivityContainer.module.css';
 
 
 class ActivityContainer extends Component {
@@ -15,7 +16,9 @@ class ActivityContainer extends Component {
             <div className={generalClasses.Card} key={timer.id}>
                 <h3>{timer.activity}</h3>
                 <p>Work Time <strong>{`${timer.work_time_hours}:${timer.work_time_minutes}`}</strong> Break Time <strong>{`${timer.break_time_hours}:${timer.break_time_minutes}`}</strong></p>
-                <Activity timer={timer} />
+                <div className={classes.Timer}>
+                    <Activity timer={timer} />
+                </div>
                 <UpdateActivity timer={timer} />
                 <div>
                     <button onClick={() => this.props.deleteActivity(timer, this.props.currentUser)}>Delete</button>
