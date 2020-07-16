@@ -1,11 +1,5 @@
-.Buttons {
-    display: flex;
-    flex-direction: column;
-}
-
-
-.Box {
-    width: auto;
+.Timer {
+    width: 80%;
     padding: 15px 25px;
     margin: auto;
     box-sizing: border-box;
