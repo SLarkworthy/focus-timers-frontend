@@ -11,12 +11,13 @@ class HomepageContainer extends Component {
     }
 
     render() {
+        console.log(this.props.quote);
         return (
             <div>
                 <Homepage 
                     loggedIn={this.props.loggedIn}
                     currentUser={this.props.currentUser}
-                    quote={this.props.quote[this.props.quote.length - 1]}/>
+                    quote={this.props.quote}/>
             </div>
         )
     }
@@ -28,7 +29,8 @@ const mapStateToProps = state => {
         loggedIn: state.manageUsers.loggedIn,
         currentUser: state.manageUsers.currentUser,
         userTimers: state.manageTimers.userTimers,
-        quote: state.manageQuote.quote
+        quote: state.manageQuote.quote,
+        quoteLoading: state.manageQuote.loading
     }
 }
 

@@ -14,6 +14,8 @@ export function getQuote() {
                     dispatch({ type: actionTypes.ADD_QUOTE, quote: quote.affirmation });
                 }
             } )
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error);
+            })
     }
 }
