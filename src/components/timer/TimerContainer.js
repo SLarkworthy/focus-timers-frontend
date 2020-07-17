@@ -17,10 +17,6 @@ class TimerContainer extends React.Component {
         }
     }
 
-    startCycle = start => {
-        start();
-    }
-
     resetCycle = (reset, pause) => {
         if (this.props.workMode) {
             reset();
@@ -57,8 +53,6 @@ class TimerContainer extends React.Component {
             initialTime={this.props.timeToMiliseconds}
             startImmediately={false}
             direction="backward"
-            onStart={() => console.log('onStart hook')}
-            onStop={() => console.log('onStop hook')}
             checkpoints={[
                 {
                     time: 999,
@@ -73,10 +67,10 @@ class TimerContainer extends React.Component {
                 <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />
             </div>
             <div className={classes.Buttons}>
-                <button onClick={() => this.startCycle(start)}>Start Cycle</button>
+                <button onClick={start}>Start Cycle</button>
+                <button onClick={() => this.resetCycle(reset, pause)}>Reset Cycle</button>
                 <button onClick={pause}>Pause</button>
                 <button onClick={resume}>Resume</button>
-                <button onClick={() => this.resetCycle(reset, pause)}>Reset Cycle</button>
                 {this.props.workMode ? <button onClick={() => this.skipToBreak(reset, pause)}>Skip to Break</button> : <button disabled>Skip to Break</button>}
             </div>
             <br />

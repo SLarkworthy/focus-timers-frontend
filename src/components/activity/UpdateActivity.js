@@ -69,7 +69,7 @@ class Login extends Component {
     render() {
         return (
             <>
-            <button onClick={this.toggleForm}>{this.buttonName()}</button>
+            <button onClick={this.toggleForm} className={classes.ToggleButton}>{this.buttonName()}</button>
             <div className={this.formClass()}>
                 <h3>Update Activity Timer</h3>
                 <form className={classes.Form} onSubmit={this.handleSubmit}>

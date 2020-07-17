@@ -11,7 +11,7 @@
 }
 
 .Buttons button:disabled {
-    background-color: grey;
+    background-color: rgb(150, 150, 150);
 }
 
 .Box {

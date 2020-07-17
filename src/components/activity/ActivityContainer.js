@@ -16,7 +16,7 @@ class ActivityContainer extends Component {
                 <Activity timer={timer} />
                 <UpdateActivity timer={timer} />
                 <div className={classes.Delete}>
-                    <button onClick={() => this.props.deleteActivity(timer, this.props.currentUser)}>Delete</button>
+                    <button onClick={() => window.confirm("Are you sure you wish to delete this item?") && this.props.deleteActivity(timer, this.props.currentUser)}>Delete</button>
                 </div>
             </div>
         ))

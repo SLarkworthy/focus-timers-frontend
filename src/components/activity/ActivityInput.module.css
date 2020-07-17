@@ -21,3 +21,8 @@ input[type=number] {
     font-size: medium;
     padding: 6px 10px;
 }
+
+.ToggleButton {
+    width: 200px;
+    margin-top: 10px;
+}
