@@ -1,8 +1,6 @@
 import React from 'react';
 import TimerState from '../timer/TimerState'
-import generalClasses from '../../App.module.css';
 import classes from './ActivityContainer.module.css';
-
 
 
 const activity = (props) => {

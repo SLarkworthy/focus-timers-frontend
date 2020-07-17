@@ -1,6 +1,13 @@
 .Buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  justify-content: center;
+}
+
+.Buttons button {
+    height: 50px;
 }
 
 
@@ -14,3 +21,9 @@
     font-size: medium;
     display: flex;
 }
+
+.Timer {
+    display: flex;
+    flex-direction: column;
+}
+

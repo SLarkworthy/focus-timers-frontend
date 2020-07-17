@@ -30,6 +30,23 @@ form input {
     font-size: large;
 }
 
+button {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 6px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 2px solid rgb(177, 177, 255);
+    width: 100px;
+}
+
+button:hover {
+    background-color:rgb(177, 177, 255);
+}
+
 @media only screen and (min-width: 800px) {
     .Card {
         width: 600px;

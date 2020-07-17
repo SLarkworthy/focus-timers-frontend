@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import * as actionTypes from "../../store/actions";
 import { updateActivity } from '../../store/actions/timerActions'
 import classes from './ActivityInput.module.css'
 
@@ -87,10 +86,6 @@ class Login extends Component {
                     </div>
                     <input type="submit" value="Update Activity" />
                 </form>
-                <div>
-                    <button>deleteeee</button>
-                    {/* <button onClick={() => this.props.deleteActivity(timer, this.props.currentUser)}>Delete</button> */}
-                </div>
             </div>
             </>
         )

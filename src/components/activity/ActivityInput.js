@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import * as actionTypes from "../../store/actions";
 import { postActivity } from '../../store/actions/timerActions'
 import classes from './ActivityInput.module.css'
 

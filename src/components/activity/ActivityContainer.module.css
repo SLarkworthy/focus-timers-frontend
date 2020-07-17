@@ -8,3 +8,8 @@
     font-size: medium;
     display: flex;
 }
+
+.Delete {
+    color:red;
+    float: right;
+}

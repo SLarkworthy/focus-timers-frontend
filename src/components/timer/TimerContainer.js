@@ -67,7 +67,10 @@ class TimerContainer extends React.Component {
             ]}
         >
             {({ start, resume, pause, reset }) => (
-            <>
+            <div className={classes.Timer}>
+             <div className={classes.Box} style={this.timerStyle()}>
+                <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />
+            </div>
             <div className={classes.Buttons}>
                 <button onClick={() => this.startCycle(start)}>Start Cycle</button>
                 <button onClick={pause}>Pause</button>
@@ -75,11 +78,8 @@ class TimerContainer extends React.Component {
                 <button onClick={() => this.resetCycle(reset, pause)}>Reset Cycle</button>
                 {this.props.workMode ? <button onClick={() => this.skipToBreak(reset, pause)}>Skip to Break</button> : null}
             </div>
-            <div className={classes.Box} style={this.timerStyle()}>
-                <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />
-            </div>
             <br />
-            </>
+            </div>
             )}
         </Timer>
     )
