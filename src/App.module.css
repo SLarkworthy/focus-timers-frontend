@@ -39,12 +39,14 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border: 2px solid rgb(177, 177, 255);
+    border: 1px solid black;
     width: 100px;
+    margin: 2px;
+    box-shadow: 2px 2px 2px rgb(75, 74, 74);
 }
 
 button:hover {
-    background-color:rgb(177, 177, 255);
+    background-color:rgb(240, 187, 200);
 }
 
 @media only screen and (min-width: 800px) {

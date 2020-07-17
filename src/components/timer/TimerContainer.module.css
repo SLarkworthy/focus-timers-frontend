@@ -3,23 +3,26 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-  justify-content: center;
+    justify-content: center;
 }
 
 .Buttons button {
     height: 50px;
 }
 
+.Buttons button:disabled {
+    background-color: grey;
+}
 
 .Box {
     width: auto;
     padding: 15px 25px;
-    margin: auto;
+    margin: 10px;
     box-sizing: border-box;
     border: 2px solid grey;
     border-radius: 4px;
-    font-size: medium;
-    display: flex;
+    font-size: 40px;
+    text-align: center;
 }
 
 .Timer {

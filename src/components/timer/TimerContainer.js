@@ -11,9 +11,9 @@ class TimerContainer extends React.Component {
 
     timerStyle = () => {
         if (this.props.workMode) {
-            return {border: "2px solid red"} 
+            return {border: "3px solid rgb(252, 140, 43)", backgroundColor: "rgb(247, 202, 163)"} 
         } else {
-            return{border: "2px solid blue"}
+            return {border: "3px solid rgb(52, 116, 179)", backgroundColor: "rgb(179, 217, 255)"}
         }
     }
 
@@ -68,6 +68,7 @@ class TimerContainer extends React.Component {
         >
             {({ start, resume, pause, reset }) => (
             <div className={classes.Timer}>
+                {this.props.workMode ? <span>work mode</span> : <span>break mode</span>}
              <div className={classes.Box} style={this.timerStyle()}>
                 <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />
             </div>
@@ -76,7 +77,7 @@ class TimerContainer extends React.Component {
                 <button onClick={pause}>Pause</button>
                 <button onClick={resume}>Resume</button>
                 <button onClick={() => this.resetCycle(reset, pause)}>Reset Cycle</button>
-                {this.props.workMode ? <button onClick={() => this.skipToBreak(reset, pause)}>Skip to Break</button> : null}
+                {this.props.workMode ? <button onClick={() => this.skipToBreak(reset, pause)}>Skip to Break</button> : <button disabled>Skip to Break</button>}
             </div>
             <br />
             </div>
