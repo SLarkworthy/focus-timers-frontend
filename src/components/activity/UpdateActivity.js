@@ -68,7 +68,6 @@ class Login extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <>
             <button onClick={this.toggleForm}>{this.buttonName()}</button>
@@ -88,6 +87,10 @@ class Login extends Component {
                     </div>
                     <input type="submit" value="Update Activity" />
                 </form>
+                <div>
+                    <button>deleteeee</button>
+                    {/* <button onClick={() => this.props.deleteActivity(timer, this.props.currentUser)}>Delete</button> */}
+                </div>
             </div>
             </>
         )
