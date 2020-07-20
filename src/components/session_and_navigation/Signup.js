@@ -6,21 +6,34 @@ import generalClasses from '../../../src/App.module.css';
 
 class Signup extends Component {
     state = {
-        name: '',
-        email: '',
-        password: '',
+        userData: {
+            name: '',
+            email: '',
+            password: '',
+        }, 
+        loggedIn: this.props.loggedIn
+    }
+
+    componentDidUpdate() {
+        if (this.props.loggedIn) {
+            this.props.history.push('/')
+        }
     }
         
     handleChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value
+            ...this.state,
+            userData: {
+                ...this.state.userData,
+                [e.target.name]: e.target.value
+            }
         })
     }
 
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.signupUser(this.state)
+        this.props.signupUser(this.state.userData)
         .then(() => {
             if (this.props.loggedIn) {
                 this.props.history.push(`/users/${this.props.currentUser.id}`)
@@ -38,9 +51,9 @@ class Signup extends Component {
             <div className={generalClasses.Card}>
                 <h1>Sign Up</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="name" placeholder="name" value={this.state.name} onChange={this.handleChange} />
-                    <input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.handleChange} />
-                    <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleChange} />
+                    <input type="text" name="name" placeholder="name" value={this.state.userData.name} onChange={this.handleChange} />
+                    <input type="text" name="email" placeholder="email" value={this.state.userData.email} onChange={this.handleChange} />
+                    <input type="password" name="password" placeholder="password" value={this.state.userData.password} onChange={this.handleChange} />
                     <input type="submit" value="Sign Up" />
                 </form>
             </div>

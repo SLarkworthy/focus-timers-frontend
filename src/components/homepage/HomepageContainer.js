@@ -11,7 +11,6 @@ class HomepageContainer extends Component {
     }
 
     render() {
-        console.log(this.props.quote);
         return (
             <div>
                 <Homepage 

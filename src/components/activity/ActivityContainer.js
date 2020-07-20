@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Activity from './Activity';
 import { deleteActivity } from "../../store/actions/timerActions";
-import TestTimer from '../timer/TestTimer';
 import ActivityInput from './ActivityInput';
 import UpdateActivity from './UpdateActivity';
 import generalClasses from '../../App.module.css';
@@ -33,10 +32,6 @@ class ActivityContainer extends Component {
                     <ActivityInput />
                 </div>
                 {this.renderTimerNames()}
-                <div className={generalClasses.Card}>
-                    Test Timer :
-                    <TestTimer />   
-                </div>           
             </div>
         )
     }

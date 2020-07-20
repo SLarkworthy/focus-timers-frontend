@@ -1,33 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import * as actionTypes from "../../store/actions";
 import { loginUser } from '../../store/actions/userActions';
 import generalClasses from '../../App.module.css';
 
 
 class Login extends Component {
     state = {
-        email: '',
-        password: '',
+        userData: {
+            email: '',
+            password: '',
+        }, 
+        loggedIn: this.props.loggedIn
+    }
+
+    componentDidUpdate() {
+        if (this.props.loggedIn) {
+            this.props.history.push('/')
+        }
     }
         
     handleChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value
+            ...this.state,
+            userData: {
+                ...this.state.userData,
+                [e.target.name]: e.target.value
+            }
         })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.loginUser(this.state)
+        this.props.loginUser(this.state.userData)
         .then(() => {
             if (this.props.loggedIn) {
                 this.props.history.push(`/users/${this.props.currentUser.id}`)
             }
         }) 
         this.setState({ 
-            email: '',
-            password: '',
+            userData: {
+                email: '',
+                password: '',
+            }, 
+            loggedIn: this.props.loggedIn
         })
     }
 
@@ -36,8 +51,8 @@ class Login extends Component {
             <div className={generalClasses.Card}>
                 <h1>Log in</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.handleChange} />
-                    <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleChange} />
+                    <input type="text" name="email" placeholder="email" value={this.state.userData.email} onChange={this.handleChange} />
+                    <input type="password" name="password" placeholder="password" value={this.state.userData.password} onChange={this.handleChange} />
                     <input type="submit" value="Log In" />
                 </form>
             </div>
