@@ -26,6 +26,7 @@ export default function manageUsers(state = {
                 currentUser: {}
             }
         case actionTypes.LOADING_SESSION_STATUS:
+            console.log("LSS");
             return {
                 ...state,
                 loggedIn: false,
