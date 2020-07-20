@@ -64,6 +64,7 @@ export function logoutUser() {
 
 export function sessionStatus() {
     return dispatch => {
+        dispatch({ type: actionTypes.LOADING_SESSION_STATUS });
         fetch("http://localhost:3001/api/v1/logged_in", {
             headers: {
                 "Content-Type": "application/json",
