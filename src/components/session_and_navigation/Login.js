@@ -34,7 +34,7 @@ class Login extends Component {
         this.props.loginUser(this.state.userData)
         .then(() => {
             if (this.props.loggedIn) {
-                this.props.history.push(`/users/${this.props.currentUser.id}`)
+                this.props.history.push(`/activities`)
             }
         }) 
         this.setState({ 

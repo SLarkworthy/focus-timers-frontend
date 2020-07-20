@@ -36,7 +36,7 @@ class Signup extends Component {
         this.props.signupUser(this.state.userData)
         .then(() => {
             if (this.props.loggedIn) {
-                this.props.history.push(`/users/${this.props.currentUser.id}`)
+                this.props.history.push(`/activities`)
             }
         }) 
         this.setState({
