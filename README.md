@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Focus Buddy
 
-This is the rails API for my first React.js project, found here: https://github.com/SLarkworthy/focus-timers-backend2
+This is the React.js side for my first React.js project, backend found here: https://github.com/SLarkworthy/focus-timers-backend2
 
 # DESCRIPTION
 
