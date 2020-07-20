@@ -2,7 +2,8 @@ import * as actionTypes from "../actions";
 
 export default function manageUsers(state = {
     loggedIn: false,
-    currentUser: {}
+    currentUser: {},
+    loadingSession: false
 }, action) {
     switch(action.type) {
         case actionTypes.SIGNUP:
@@ -15,13 +16,22 @@ export default function manageUsers(state = {
             return {
                 ...state,
                 loggedIn: true,
-                currentUser: action.user
+                currentUser: action.user,
+                loadingSession: false
             }
         case actionTypes.LOGOUT:
             return {
                 ...state,
                 loggedIn: false,
                 currentUser: {}
+            }
+        case actionTypes.LOADING_SESSION_STATUS:
+            console.log("LSS");
+            return {
+                ...state,
+                loggedIn: false,
+                currentUser: {},
+                loadingSession: true
             }
             
         default:

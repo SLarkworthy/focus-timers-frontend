@@ -16,7 +16,7 @@ const navBar = (props) => {
             <Link to="/">
                 Home
             </Link>
-            {!props.loggedIn ?
+            {!props.loadingSession && !props.loggedIn ?
             <>
             <Link to="/login">
                 Log In
@@ -24,7 +24,7 @@ const navBar = (props) => {
             <Link to="/signup">
                 Sign Up
             </Link> </> : null}
-            {props.loggedIn ?
+            {!props.loadingSession && props.loggedIn ?
             <>
             <Link to={`/users/${props.currentUser.id}`} >
                 User page
@@ -42,7 +42,8 @@ const navBar = (props) => {
 const mapStateToProps = state => {
     return {
         loggedIn: state.manageUsers.loggedIn,
-        currentUser: state.manageUsers.currentUser
+        currentUser: state.manageUsers.currentUser,
+        loadingSession: state.manageUsers.loadingSession
     }
 }
 
