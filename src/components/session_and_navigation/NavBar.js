@@ -10,7 +10,7 @@ const navBar = (props) => {
             props.logoutUser();
         }
     }
-
+    
     return (
         <div className={classes.NavBar}>
             <Link to="/">

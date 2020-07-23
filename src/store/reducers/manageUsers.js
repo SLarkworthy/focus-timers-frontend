@@ -10,7 +10,8 @@ export default function manageUsers(state = {
             return {
                 ...state,
                 loggedIn: true,
-                currentUser: action.user
+                currentUser: action.user,
+                loadingSession: false
             }
         case actionTypes.LOGIN:
             return {
@@ -23,7 +24,8 @@ export default function manageUsers(state = {
             return {
                 ...state,
                 loggedIn: false,
-                currentUser: {}
+                currentUser: {},
+                loadingSession: false
             }
         case actionTypes.LOADING_SESSION_STATUS:
             console.log("LSS");
