@@ -12,6 +12,9 @@ export const DELETED_TIMERS = "DELETED_TIMERS";
 export const ADD_QUOTE = "DELETE_TIMERS";
 export const LOADING_QUOTE = "LOADING_QUOTE";
 
+export const ADD_ERROR = "ADD_ERROR";
+export const CLEAR_ERRORS = "CLEAR_ERROR";
+
 
 
 
