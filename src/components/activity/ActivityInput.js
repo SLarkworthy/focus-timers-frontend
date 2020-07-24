@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { postActivity } from '../../store/actions/timerActions'
 import classes from './ActivityInput.module.css'
+import Errors from '../errors/Errors'
 
 class Login extends Component {
     state = {

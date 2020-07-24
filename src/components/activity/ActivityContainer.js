@@ -6,6 +6,7 @@ import ActivityInput from './ActivityInput';
 import UpdateActivity from './UpdateActivity';
 import generalClasses from '../../App.module.css';
 import classes from './ActivityContainer.module.css';
+import Errors from '../errors/Errors';
 
 class ActivityContainer extends Component {
 
@@ -25,6 +26,7 @@ class ActivityContainer extends Component {
     render() {
         return (
             <div>
+                <Errors />
                 <div className={generalClasses.Card}>
                     <h2>Activity Timers</h2>
                 </div>

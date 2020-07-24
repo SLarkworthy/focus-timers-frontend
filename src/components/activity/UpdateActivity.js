@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux"
-import { updateActivity } from '../../store/actions/timerActions'
-import classes from './ActivityInput.module.css'
+import { connect } from "react-redux";
+import { updateActivity } from '../../store/actions/timerActions';
+import classes from './ActivityInput.module.css';
 
 
 class Login extends Component {
@@ -95,7 +95,8 @@ class Login extends Component {
 const mapStateToProps = state => {
     return {
         loggedIn: state.manageUsers.loggedIn,
-        currentUser: state.manageUsers.currentUser
+        currentUser: state.manageUsers.currentUser,
+        errors: state.manageErrors.errors
     }
 }
 

@@ -5,7 +5,6 @@ export default function manageQuote(state = {
 }, action) {
     switch(action.type) {
         case actionTypes.ADD_QUOTE:
-            console.log("ADD")
             return {
                 ...state,
                 quote: action.quote,

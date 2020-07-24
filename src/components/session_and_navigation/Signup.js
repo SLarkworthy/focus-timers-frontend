@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { signupUser } from '../../store/actions/userActions';
 import generalClasses from '../../../src/App.module.css';
-
+import Errors from '../errors/Errors';
 
 class Signup extends Component {
     state = {
@@ -51,6 +51,7 @@ class Signup extends Component {
             
             <div className={generalClasses.Card}>
                 <h1>Sign Up</h1>
+                <Errors />
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="name" placeholder="name" value={this.state.userData.name} onChange={this.handleChange} />
                     <input type="text" name="email" placeholder="email" value={this.state.userData.email} onChange={this.handleChange} />

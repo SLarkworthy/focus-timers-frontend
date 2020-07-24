@@ -2,6 +2,7 @@ import * as actionTypes from "../actions";
 
 export function loginUser(user) {
     return dispatch => {
+        dispatch({ type: actionTypes.CLEAR_ERRORS })
         return fetch("http://localhost:3001/api/v1/login", {
             method: "POST",
             headers: {
@@ -17,14 +18,20 @@ export function loginUser(user) {
                     dispatch({ type: actionTypes.LOGIN, user: userData.user.data.attributes })
                     for (let timer of userData.user.data.attributes.activity_timers ) {
                         dispatch({ type: actionTypes.ADD_TIMER, timer: timer })
+                    } 
+                } else if (userData.errors) {
+                    for (let error of userData.errors) {
+                        dispatch({ type: actionTypes.ADD_ERROR, error: error })
                     }
-                }
+                }  
             } )
+            .catch(() => dispatch({ type: actionTypes.ADD_ERROR, error: "Server error" }))
     }
 }
 
 export function signupUser(user) {
     return dispatch => {
+        dispatch({ type: actionTypes.CLEAR_ERRORS })
         return fetch("http://localhost:3001/api/v1/users", {
             method: "POST",
             headers: {
@@ -38,8 +45,13 @@ export function signupUser(user) {
             .then(userData => {
                 if (userData.user) {
                     dispatch({ type: actionTypes.SIGNUP, user: userData.user.data.attributes })
-                }
+                } else if (userData.errors) {
+                    for (let error of userData.errors) {
+                        dispatch({ type: actionTypes.ADD_ERROR, error: error })
+                    }
+                }   
             } )
+            .catch(() => dispatch({ type: actionTypes.ADD_ERROR, error: "Server error" }))
     }
 }
 
