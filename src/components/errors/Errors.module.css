@@ -1,0 +1,5 @@
+.Errors {
+    background-color: rgb(255, 80, 80, 0.5);
+    font-weight: bold;
+    border: 2px solid red;
+}

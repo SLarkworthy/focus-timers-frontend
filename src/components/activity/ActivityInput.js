@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { postActivity } from '../../store/actions/timerActions'
 import classes from './ActivityInput.module.css'
+import Errors from '../errors/Errors'
 
 class Login extends Component {
     state = {
@@ -48,6 +49,7 @@ class Login extends Component {
                         <input type="number" name="break_time_hours" value={this.state.break_time_hours} onChange={this.handleChange} /><strong> : </strong> 
                         <input type="number" name="break_time_minutes" value={this.state.break_time_minutes} onChange={this.handleChange} />
                     </div>
+                    <Errors />
                     <input type="submit" value="Add Activity" />
                 </form>
             </div>

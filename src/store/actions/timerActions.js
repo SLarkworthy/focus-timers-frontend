@@ -23,6 +23,7 @@ export function getActivityTimers(user) {
 
 export function postActivity(timer, user) {
     return dispatch => {
+        dispatch({ type: actionTypes.CLEAR_ERRORS })
         return fetch(`http://localhost:3001/api/v1/users/${user.id}/activity_timers`, {
             method: "POST",
             headers: {
@@ -36,7 +37,11 @@ export function postActivity(timer, user) {
             .then(timerData => {
                 if (timerData.data) {
                     dispatch({ type: actionTypes.ADD_TIMER, timer: timerData.data.attributes })
-                }
+                } else if (timerData.errors) {
+                    for (let error of timerData.errors) {
+                        dispatch({ type: actionTypes.ADD_ERROR, error: error })
+                    }
+                }             
             })
     }
 }

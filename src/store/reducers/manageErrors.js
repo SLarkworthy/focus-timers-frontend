@@ -7,12 +7,12 @@ export default function manageErrors(state = {
         case actionTypes.ADD_ERROR:
             return {
                 ...state,
-                quote: action.quote,
+                errors: [...state.errors, action.error]
             }
         case actionTypes.CLEAR_ERRORS:
             return {
                 ...state,
-                quote: [],
+                errors: [],
             }
             
         default:
