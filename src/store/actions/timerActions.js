@@ -16,7 +16,6 @@ export function getActivityTimers(user) {
                         dispatch({ type: actionTypes.ADD_TIMER, timer: timer.attributes })
                     }
                 }
-               console.log(timerData.data);
             } )
     }
 }
@@ -43,11 +42,13 @@ export function postActivity(timer, user) {
                     }
                 }             
             })
+            .catch(() => dispatch({ type: actionTypes.ADD_ERROR, error: "Server error" }))
     }
 }
 
 export function updateActivity(timer, user) {
     return dispatch => {
+        dispatch({ type: actionTypes.CLEAR_ERRORS })
         return fetch(`http://localhost:3001/api/v1/users/${user.id}/activity_timers/${timer.id}`, {
             method: "PATCH",
             headers: {
@@ -61,8 +62,13 @@ export function updateActivity(timer, user) {
             .then(timerData => {
                 if (timerData.data) {
                     dispatch({ type: actionTypes.PATCH_TIMER, timer: timerData.data.attributes })
-                }
+                } else if (timerData.errors) {
+                    for (let error of timerData.errors) {
+                        dispatch({ type: actionTypes.ADD_ERROR, error: error })
+                    }
+                }  
             })
+            .catch(() => dispatch({ type: actionTypes.ADD_ERROR, error: "Server error" }))
     }
 }
 

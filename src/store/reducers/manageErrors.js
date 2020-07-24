@@ -11,8 +11,7 @@ export default function manageErrors(state = {
             }
         case actionTypes.CLEAR_ERRORS:
             return {
-                ...state,
-                errors: [],
+                errors: []
             }
             
         default:

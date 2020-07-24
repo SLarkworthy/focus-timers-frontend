@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux"
-import { updateActivity } from '../../store/actions/timerActions'
-import classes from './ActivityInput.module.css'
+import { connect } from "react-redux";
+import { updateActivity } from '../../store/actions/timerActions';
+import classes from './ActivityInput.module.css';
+import Errors from '../errors/Errors';
 
 
 class Login extends Component {
@@ -84,6 +85,7 @@ class Login extends Component {
                         <input type="number" name="break_time_hours" value={this.state.timer.break_time_hours} onChange={this.handleChange} /><strong> : </strong> 
                         <input type="number" name="break_time_minutes" value={this.state.timer.break_time_minutes} onChange={this.handleChange} />
                     </div>
+                    <Errors />
                     <input type="submit" value="Update Activity" />
                 </form>
             </div>
@@ -95,7 +97,8 @@ class Login extends Component {
 const mapStateToProps = state => {
     return {
         loggedIn: state.manageUsers.loggedIn,
-        currentUser: state.manageUsers.currentUser
+        currentUser: state.manageUsers.currentUser,
+        errors: state.manageErrors.errors
     }
 }
 

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from "react-redux";
 import classes from './Errors.module.css';
+import * as actionTypes from '../../store/actions';
 
-const errors = (props) => {
-    function errorLogic() {
-        if (props.errors.length !== 0) {
+class Errors extends Component {
+    errorLogic() {
+        if (this.props.errors.length !== 0) {
             return (
-                <ul className={classes.Errors}>
-                    {props.errors.map((error, index) => {
+                <ul 
+                    className={classes.Errors}
+                    onClick={this.handleClick}>
+                    {this.props.errors.map((error, index) => {
                         return <li key={index}>{error}</li>
                     })}
                 </ul>
@@ -17,9 +20,17 @@ const errors = (props) => {
         }
     }
 
-    return (
-        errorLogic()
-    )
+    handleClick = () => {
+        this.props.clearErrors();
+    }
+
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
+    render() {
+        return this.errorLogic()
+    }
 }
 
 const mapStateToProps = state => {
@@ -28,4 +39,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(errors);
+const mapDispatchToProps = dispatch => {
+    return {
+      clearErrors: () => dispatch({ type: actionTypes.CLEAR_ERRORS })
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Errors);

@@ -1,5 +1,8 @@
 .Errors {
-    background-color: rgb(255, 80, 80, 0.5);
+    background-color: rgb(255, 144, 144);
     font-weight: bold;
     border: 2px solid red;
+    top: 50px;
+    left: auto;
+    position: fixed;
 }
