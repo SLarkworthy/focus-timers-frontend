@@ -17,6 +17,7 @@ export function getActivityTimers(user) {
                     }
                 }
             } )
+            .catch(() => dispatch({ type: actionTypes.ADD_ERROR, error: "Server error" }))
     }
 }
 
@@ -87,5 +88,6 @@ export function deleteActivity(timer, user) {
                     dispatch({ type: actionTypes.DELETE_TIMER, timer})
                 }
             })
+            .catch(() => dispatch({ type: actionTypes.ADD_ERROR, error: "Server error" }))
     }
 }

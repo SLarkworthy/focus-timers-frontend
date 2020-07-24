@@ -49,7 +49,6 @@ class Login extends Component {
                         <input type="number" name="break_time_hours" value={this.state.break_time_hours} onChange={this.handleChange} /><strong> : </strong> 
                         <input type="number" name="break_time_minutes" value={this.state.break_time_minutes} onChange={this.handleChange} />
                     </div>
-                    <Errors />
                     <input type="submit" value="Add Activity" />
                 </form>
             </div>
