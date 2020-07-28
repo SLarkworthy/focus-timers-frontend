@@ -3,13 +3,13 @@ import TimerState from '../timer/TimerState'
 import classes from './ActivityContainer.module.css';
 
 
-const activity = (props) => {
+const activity = ({timer}) => {
     return (
         <>
-            <h3>{props.timer.activity}</h3>
-            <p>Work Time <strong>{`${props.timer.work_time_hours}:${props.timer.work_time_minutes}`}</strong> Break Time <strong>{`${props.timer.break_time_hours}:${props.timer.break_time_minutes}`}</strong></p>
+            <h3>{timer.activity}</h3>
+            <p>Work Time <strong>{`${timer.work_time_hours}:${timer.work_time_minutes}`}</strong> Break Time <strong>{`${timer.break_time_hours}:${timer.break_time_minutes}`}</strong></p>
             <div className={classes.Timer}>
-                <TimerState timer={props.timer}/>
+                <TimerState timer={timer}/>
             </div>
         </>
     )

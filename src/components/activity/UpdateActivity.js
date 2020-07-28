@@ -5,6 +5,7 @@ import classes from './ActivityInput.module.css';
 
 
 class Login extends Component {
+
     state = {
         timer: {
             id: this.props.timer.id,
@@ -67,22 +68,23 @@ class Login extends Component {
     }
 
     render() {
+        const { timer } = this.state
         return (
             <>
             <button onClick={this.toggleForm} className={classes.ToggleButton}>{this.buttonName()}</button>
             <div className={this.formClass()}>
                 <h3>Update Activity Timer</h3>
                 <form className={classes.Form} onSubmit={this.handleSubmit}>
-                    <input type="text" name="activity" placeholder="activity name" value={this.state.timer.activity} onChange={this.handleChange} />
+                    <input type="text" name="activity" placeholder="activity name" value={timer.activity} onChange={this.handleChange} />
                     <label>Work Time</label>
                     <div>
-                        <input type="number" name="work_time_hours" value={this.state.timer.work_time_hours} onChange={this.handleChange} /><strong> : </strong> 
-                        <input type="number" name="work_time_minutes" value={this.state.timer.work_time_minutes} max="59" onChange={this.handleChange} />
+                        <input type="number" name="work_time_hours" value={timer.work_time_hours} onChange={this.handleChange} /><strong> : </strong> 
+                        <input type="number" name="work_time_minutes" value={timer.work_time_minutes} max="59" onChange={this.handleChange} />
                     </div>
                     <label>Break Time</label>
                     <div>
-                        <input type="number" name="break_time_hours" value={this.state.timer.break_time_hours} onChange={this.handleChange} /><strong> : </strong> 
-                        <input type="number" name="break_time_minutes" value={this.state.timer.break_time_minutes} max="59" onChange={this.handleChange} />
+                        <input type="number" name="break_time_hours" value={timer.break_time_hours} onChange={this.handleChange} /><strong> : </strong> 
+                        <input type="number" name="break_time_minutes" value={timer.break_time_minutes} max="59" onChange={this.handleChange} />
                     </div>
                     <input type="submit" value="Update Activity" />
                 </form>
@@ -94,9 +96,7 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-        loggedIn: state.manageUsers.loggedIn,
         currentUser: state.manageUsers.currentUser,
-        errors: state.manageErrors.errors
     }
 }
 
