@@ -3,6 +3,7 @@
     font-weight: bold;
     border: 2px solid red;
     top: 50px;
-    left: auto;
+    left: 50%;
+    transform: translateX(-50%);
     position: fixed;
 }
