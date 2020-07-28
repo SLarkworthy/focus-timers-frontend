@@ -77,12 +77,12 @@ class Login extends Component {
                     <label>Work Time</label>
                     <div>
                         <input type="number" name="work_time_hours" value={this.state.timer.work_time_hours} onChange={this.handleChange} /><strong> : </strong> 
-                        <input type="number" name="work_time_minutes" value={this.state.timer.work_time_minutes} onChange={this.handleChange} />
+                        <input type="number" name="work_time_minutes" value={this.state.timer.work_time_minutes} max="59" onChange={this.handleChange} />
                     </div>
                     <label>Break Time</label>
                     <div>
                         <input type="number" name="break_time_hours" value={this.state.timer.break_time_hours} onChange={this.handleChange} /><strong> : </strong> 
-                        <input type="number" name="break_time_minutes" value={this.state.timer.break_time_minutes} onChange={this.handleChange} />
+                        <input type="number" name="break_time_minutes" value={this.state.timer.break_time_minutes} max="59" onChange={this.handleChange} />
                     </div>
                     <input type="submit" value="Update Activity" />
                 </form>
