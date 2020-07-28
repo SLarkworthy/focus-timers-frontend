@@ -18,14 +18,12 @@ class TimerContainer extends React.Component {
     }
 
     resetCycle = (reset, pause) => {
-        if (this.props.workMode) {
-            reset();
-            pause();
-        } else {
+        if (!this.props.workMode) {
             this.props.changeMode();
-            reset();
-            pause();
-        }
+        } 
+        reset();
+        pause();
+        
     }
 
     skipToBreak = (reset, pause) => {

@@ -25,9 +25,8 @@ class TimerState extends Component {
         return (
             <TimerContainer 
                 timeToMiliseconds={this.timeToMiliseconds()}
-                timer={this.props.timer}
                 workMode={this.state.workMode}
-                changeMode={() => this.handleModeChange()} />
+                changeMode={this.handleModeChange} />
         );
     }
 }
