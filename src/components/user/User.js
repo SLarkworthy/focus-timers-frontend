@@ -1,12 +1,10 @@
 import React from 'react';
 
-
-
-const user = (props) => {
+const user = ({ currentUser }) => {
     return (
         <div>
-            <h2>Welcome, {`${props.currentUser.name}`}</h2>
-            <p>Email: {`${props.currentUser.email}`}</p>
+            <h2>Welcome, {`${currentUser.name}`}</h2>
+            <p>Email: {`${currentUser.email}`}</p>
         </div>
     )
 }

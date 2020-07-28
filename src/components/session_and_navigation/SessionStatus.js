@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sessionStatus } from "../../store/actions/userActions"
-import { getActivityTimers } from "../../store/actions/timerActions";
 import classes from './SessionStatus.module.css'
 import Routes from './Routes'
 import image from '../../assets/sunset.jpg'
@@ -30,4 +29,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { sessionStatus, getActivityTimers })(SessionStatus)
+export default connect(mapStateToProps, { sessionStatus })(SessionStatus)

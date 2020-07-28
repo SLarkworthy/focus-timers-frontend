@@ -8,7 +8,7 @@ import ActivityContainer from '../activity/ActivityContainer';
 import HomepageContainer from '../homepage/HomepageContainer'
 
 
-const routes = (props) => {
+const routes = () => {
     return (
         <Router>
             <NavBar />

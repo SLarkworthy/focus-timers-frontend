@@ -48,7 +48,6 @@ class Signup extends Component {
 
     render() {
         return (
-            
             <div className={generalClasses.Card}>
                 <h1>Sign Up</h1>
                 <Errors />

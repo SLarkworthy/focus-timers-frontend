@@ -1,28 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import User from './User';
 import generalClasses from '../../App.module.css';
 
 
 
-class UserContainer extends Component {
+const userContainer = ({ params, currentUser }) => {
 
-    pageContent = () => {
-        if (parseInt(this.props.params.id) === this.props.currentUser.id) {
-            return <User currentUser={this.props.currentUser}/>;
+    const pageContent = () => {
+        if (parseInt(params.id) === currentUser.id) {
+            return <User currentUser={currentUser}/>;
         } else {
             return "unauthorized";
         }
-    }
-
-    render() {
-        return (
-            <div className={generalClasses.Card}>
-                {this.pageContent()}
-            </div>
-        )
-    }
-
+    }  
+    
+    return (
+        <div className={generalClasses.Card}>
+            {pageContent()}
+        </div>
+    )
 }
 
 const mapStateToProps = state => {
@@ -32,4 +29,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(UserContainer)
+export default connect(mapStateToProps)(userContainer)
