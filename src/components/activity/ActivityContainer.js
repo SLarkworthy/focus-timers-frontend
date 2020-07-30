@@ -10,8 +10,29 @@ import Errors from '../errors/Errors';
 
 class ActivityContainer extends Component {
 
+    state = {
+        clicked: false
+    }
+
     renderTimerNames = () => {
-        return [...this.props.userTimers].sort( (b, a) => a.id - b.id ).map(timer => (
+        console.log(this.state)
+        const sortedArray = () => {
+            if (!this.state.clicked){
+                return [...this.props.userTimers].sort( (b, a) => a.id - b.id )
+            } else {
+                return [...this.props.userTimers].sort( (a, b) => {
+                    let aName = a.activity.toUpperCase();
+                    let bName = b.activity.toUpperCase();
+                    if (aName < bName) {
+                        return -1;
+                    } else if (aName > bName) {
+                        return 1;
+                    } else return 0;
+                })
+            }
+        }
+     
+        return sortedArray().map(timer => (
             <div className={generalClasses.Card} key={timer.id}>
                 <Activity timer={timer} />
                 <UpdateActivity timer={timer} />
@@ -19,7 +40,11 @@ class ActivityContainer extends Component {
                     <button onClick={() => window.confirm("Are you sure you wish to delete this item?") && this.props.deleteActivity(timer, this.props.currentUser)}>Delete</button>
                 </div>
             </div>
-        ))
+        )) 
+    }
+
+    handleClick = () => {
+        this.setState({clicked: true});
     }
 
 
@@ -29,6 +54,7 @@ class ActivityContainer extends Component {
                 <Errors />
                 <div className={generalClasses.Card}>
                     <h2>Activity Timers</h2>
+                    <button onClick={this.handleClick}>Sort By Name!</button>
                 </div>
                 <div className={generalClasses.Card}> 
                     <ActivityInput />
