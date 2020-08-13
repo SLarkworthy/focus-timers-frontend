@@ -15,7 +15,6 @@ class ActivityContainer extends Component {
     }
 
     renderTimerNames = () => {
-        console.log(this.state)
         const sortedArray = () => {
             if (!this.state.clicked){
                 return [...this.props.userTimers].sort( (b, a) => a.id - b.id )
