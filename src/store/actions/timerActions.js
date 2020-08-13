@@ -2,7 +2,7 @@ import * as actionTypes from "../actions";
 
 export function getActivityTimers(user) {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/v1/users/${user.id}/activity_timers`, {
+        return fetch(`https://focusbuddycli.herokuapp.com/api/v1/users/${user.id}/activity_timers`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -24,7 +24,7 @@ export function getActivityTimers(user) {
 export function postActivity(timer, user) {
     return dispatch => {
         dispatch({ type: actionTypes.CLEAR_ERRORS })
-        return fetch(`http://localhost:3001/api/v1/users/${user.id}/activity_timers`, {
+        return fetch(`https://focusbuddycli.herokuapp.com/api/v1/users/${user.id}/activity_timers`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export function postActivity(timer, user) {
 export function updateActivity(timer, user) {
     return dispatch => {
         dispatch({ type: actionTypes.CLEAR_ERRORS })
-        return fetch(`http://localhost:3001/api/v1/users/${user.id}/activity_timers/${timer.id}`, {
+        return fetch(`https://focusbuddycli.herokuapp.com/api/v1/users/${user.id}/activity_timers/${timer.id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',

@@ -3,7 +3,7 @@ import * as actionTypes from "../actions";
 export function loginUser(user) {
     return dispatch => {
         dispatch({ type: actionTypes.CLEAR_ERRORS })
-        return fetch("http://localhost:3001/api/v1/login", {
+        return fetch("https://focusbuddycli.herokuapp.com/api/v1/login", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export function loginUser(user) {
 export function signupUser(user) {
     return dispatch => {
         dispatch({ type: actionTypes.CLEAR_ERRORS })
-        return fetch("http://localhost:3001/api/v1/users", {
+        return fetch("https://focusbuddycli.herokuapp.com/api/v1/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export function signupUser(user) {
 
 export function logoutUser() {
     return dispatch => {
-        fetch(`http://localhost:3001/api/v1/logout`, {
+        fetch(`https://focusbuddycli.herokuapp.com/api/v1/logout`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ export function logoutUser() {
 export function sessionStatus() {
     return dispatch => {
         dispatch({ type: actionTypes.LOADING_SESSION_STATUS });
-        fetch("http://localhost:3001/api/v1/logged_in", {
+        fetch("https://focusbuddycli.herokuapp.com/api/v1/logged_in", {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
