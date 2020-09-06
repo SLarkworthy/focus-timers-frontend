@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Focus Buddy
 
+Now hosted on heroku! https://focusbuddy.herokuapp.com/
+
 This is the React.js side for my first React.js project, backend found here: https://github.com/SLarkworthy/focus-timers-backend2
 
 # DESCRIPTION
